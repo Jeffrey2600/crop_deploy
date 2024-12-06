@@ -11,10 +11,12 @@ MODEL_PATH = 'models/model.h5'
 
 # Function to download the model if it doesn't exist
 def download_model():
+    if not os.path.exists('models'):
+        os.makedirs('models')  # Create the 'models' directory if it doesn't exist
     if not os.path.exists(MODEL_PATH):
         print("Downloading model...")
-        # Replace 'YOUR_FILE_ID' with the actual Google Drive file ID
-        gdown.download('https://drive.google.com/file/d/12br5OceyvFex-ktOjGF1_hXId8yk2Ok0/view?usp=drive_link', MODEL_PATH, quiet=False)
+        # Use your Google Drive file ID
+        gdown.download('https://drive.google.com/uc?id=12br5OceyvFex-ktOjGF1_hXId8yk2Ok0', MODEL_PATH, quiet=False)
         print("Model downloaded successfully.")
 
 # Download the model at the start of the app
