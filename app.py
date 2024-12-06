@@ -31,7 +31,7 @@ IMG_SIZE = (69, 69)  # Example image size, you may need to adjust it
 def home():
     return "Flask App is Running"
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if 'image' not in request.files:
         return jsonify({'error': 'No image uploaded'}), 400
